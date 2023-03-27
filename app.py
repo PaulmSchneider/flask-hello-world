@@ -36,6 +36,7 @@ def creating():
 @app.route('/db_insert') 
 def inserting():
     conn = psycopg2.connect("postgres://lab10_database_user:KiS4fx9OXYQtitrLjddz2sJgDUtXpFgM@dpg-cgguln0rjent5o4ovahg-a/lab10_database")
+    cur = conn.cursor()
     cur.execute('''
         INSERT INTO Basketball (First, Last, City, Name, Number) 
         Values 
@@ -47,3 +48,4 @@ def inserting():
     conn.commit()
     conn.close()
     return "Basketball Table Successfully Populated" 
+
